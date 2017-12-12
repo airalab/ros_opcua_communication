@@ -1,3 +1,0 @@
-[submodule "ros_opcua_impl_freeopcua/freeopcua"]
-	path = freeopcua
-	url = https://github.com/FreeOpcUa/freeopcua.git

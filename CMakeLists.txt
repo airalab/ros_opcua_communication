@@ -1,13 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ros_opcua_impl_freeopcua)
 
-set(BUILD_CLIENT ON)
-set(BUILD_SERVER ON)
-set(BUILD_PYTHON ON)
-set(BUILD_TESTING OFF)
-
-add_subdirectory(freeopcua)
-
 set(FreeOpcUa_LIBRARIES opcua)
 
 find_package(catkin REQUIRED
