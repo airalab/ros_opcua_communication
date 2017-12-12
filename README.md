@@ -1,15 +1,14 @@
-# ros_opcua_communication
+This package implements bindings for freeopcua - Open Source C++ OPC-UA Server and Client Library.
 
-Clone the repository with:
+First you need to build FreeOpcUa with following commands (asume that you are in FreeOpcUa folder):
 
+```sh
+mkdir build
+cd build
+cmake ..
+make
 ```
-git clone --recursive https://github.com/iirob/ros_opcua_communication.git
-```
 
-## ROS Distro Support
+And change `FreeOpcUa_LIBRARIES` variable to be compatible with your environment.
 
-|         | Indigo | Kinetic |
-|:-------:|:------:|:-------:|
-| Branch  | [`indigo-devel`](https://github.com/iirob/ros_opcua_communication/tree/indigo-devel) | [`kinetic_devel`](https://github.com/iirob/ros_opcua_communication/tree/kinetic-devel) |
-| Status  | [![Build Status](https://travis-ci.org/iirob/ros_opcua_communication.svg?branch=indigo-devel)](https://travis-ci.org/iirob/ros_opcua_communication) | [![Build Status](https://travis-ci.org/iirob/ros_opcua_communication.svg?branch=kinetic-devel)](https://travis-ci.org/iirob/ros_opcua_communication) |
-| Version | [version](http://repositories.ros.org/status_page/ros_indigo_default.html?q=ros_opcua_communication) | [version](http://repositories.ros.org/status_page/ros_kinetic_default.html?q=ros_opcua_communication) |
+Enjoy!
