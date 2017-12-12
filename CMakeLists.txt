@@ -8,7 +8,7 @@ find_package(catkin REQUIRED
 )
 
 find_package(Boost REQUIRED COMPONENTS system thread)
-find_package(libopcuaclient REQUIRED)
+pkg_check_modules (OPCUA REQUIRED opcuaclient)
 
 catkin_package(
  INCLUDE_DIRS include
@@ -25,12 +25,12 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
-  ${libopcuaclient_INCLUDE_DIRS}
+  ${OPCUA_INCLUDE_DIRS}
 )
 
 add_executable(client_node src/opcua_client.cpp)
 add_dependencies(client_node ros_opcua_msgs_generate_messages_cpp ros_opcua_srvs_generate_messages_cpp)
-target_link_libraries(client_node ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${libopcuaclient_LIBRARIES})
+target_link_libraries(client_node ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${OPCUA_LIBRARIES})
 
 #############
 ## Install ##
