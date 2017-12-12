@@ -8,6 +8,8 @@ find_package(catkin REQUIRED
 )
 
 find_package(Boost REQUIRED COMPONENTS system thread)
+
+find_package(PkgConfig REQUIRED)
 pkg_check_modules (OPCUA REQUIRED opcuaclient)
 
 catkin_package(
