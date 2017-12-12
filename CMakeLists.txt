@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ros_opcua_impl_freeopcua)
 
-set(FreeOpcUa_LIBRARIES opcua)
-
 find_package(catkin REQUIRED
   roscpp
   ros_opcua_msgs
@@ -10,9 +8,10 @@ find_package(catkin REQUIRED
 )
 
 find_package(Boost REQUIRED COMPONENTS system thread)
+find_package(libopcuaclient REQUIRED)
 
 catkin_package(
- INCLUDE_DIRS include freeopcua/include
+ INCLUDE_DIRS include
  CATKIN_DEPENDS roscpp ros_opcua_msgs ros_opcua_srvs
 )
 
@@ -24,14 +23,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 include_directories(
   include
-  freeopcua/include
   ${catkin_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
+  ${libopcuaclient_INCLUDE_DIRS}
 )
 
 add_executable(client_node src/opcua_client.cpp)
 add_dependencies(client_node ros_opcua_msgs_generate_messages_cpp ros_opcua_srvs_generate_messages_cpp)
-target_link_libraries(client_node ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${FreeOpcUa_LIBRARIES})
+target_link_libraries(client_node ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${libopcuaclient_LIBRARIES})
 
 #############
 ## Install ##
